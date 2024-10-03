@@ -35,8 +35,8 @@ def main(input_path, output_dir):
                 batch_tokens = batch_tokens.cuda()
                 # Extract per-residue representations (on GPU)
                 with torch.no_grad():
-                    results = model(batch_tokens, repr_layers=[33], return_contacts=True)
-                token_representations = results["representations"][33]
+                    results = model(batch_tokens, repr_layers=[36], return_contacts=True)
+                token_representations = results["representations"][36]
                 vectors1 = token_representations.detach().cpu().numpy()[0][1:-1]
                 if len(vectors) > 0:
                     vectors = np.concatenate((vectors, vectors1))
